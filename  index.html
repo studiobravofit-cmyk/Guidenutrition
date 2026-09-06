@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bravo Fit : Guide Nutrition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Serif+4:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1712; --cream:#fdf3e4; --gold:#e0983f; --gold-dark:#b5661e; --line:#f0c98a;
+    --terra:#e8734a; --peach:#ffb98a; --olive:#7a8f4a; --plum:#8a3f5e;
+  }
+  *{box-sizing:border-box;}
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background: linear-gradient(180deg, #fff3df 0%, #ffe7c9 20%, #ffd9b0 45%, #ffe3c4 70%, #fff3df 100%);
+    color:#2a2016; font-family:'Source Serif 4', Georgia, serif;
+    font-size:clamp(17px, 2.2vw, 27px); line-height:1.85;
+    overflow-x:hidden;
+  }
+  h1,h2,.serif{ font-family:'Playfair Display', serif; }
+  img{ max-width:100%; }
+
+  .cover{ max-width:860px; margin:0 auto; padding:70px 34px 40px; text-align:center;
+    background: radial-gradient(circle at 30% 20%, #ffdca3 0%, transparent 55%), radial-gradient(circle at 80% 80%, #ffb18a 0%, transparent 55%); }
+  .cover .banner{ width:100%; height:300px; object-fit:cover; border-radius:10px; margin-bottom:36px; box-shadow:0 10px 30px rgba(184,90,20,0.25); }
+  .cover .eyebrow{ letter-spacing:5px; font-size:clamp(13px, 1.5vw, 18px); text-transform:uppercase; color:var(--terra); margin-bottom:14px; font-weight:700; }
+  .cover h1{ font-size:clamp(34px, 6vw, 58px); margin:0 0 16px; font-weight:800; color:var(--plum); text-shadow:1px 1px 0 rgba(255,255,255,0.5); }
+  .cover .rule{ width:90px; height:4px; background:linear-gradient(90deg, var(--terra), var(--gold)); margin:22px auto; border-radius:4px; }
+  .cover p{ max-width:560px; margin:0 auto; font-size:clamp(17px, 2.2vw, 27px); color:#4a3620; font-weight:500; }
+  .cover .disclaimer{ max-width:560px; margin:26px auto 0; font-size:clamp(14px, 1.6vw, 19px); color:#7a5a35; font-style:italic; }
+
+  section{ max-width:760px; margin:24px auto; padding:60px 40px; border-radius:18px; background:#fffaf0; box-shadow:0 6px 24px rgba(180,110,40,0.10); }
+  section:nth-of-type(odd){ background: linear-gradient(160deg, #fff7ea 0%, #ffedd2 100%); }
+  section:nth-of-type(even){ background: linear-gradient(160deg, #fff2e0 0%, #ffe0c4 100%); }
+
+  .kicker{ font-size:clamp(13px, 1.5vw, 18px); letter-spacing:3px; text-transform:uppercase; color:#fff; background:linear-gradient(90deg, var(--terra), var(--gold-dark)); display:inline-block; padding:6px 16px; border-radius:20px; margin-bottom:16px; font-weight:700; }
+  h2{ font-size:clamp(26px, 4.5vw, 42px); margin:0 0 24px; font-weight:800; color:var(--plum); }
+  h3{ font-size:clamp(19px, 3vw, 29px); margin:32px 0 12px; font-weight:700; color:var(--terra); }
+  p{ margin:0 0 20px; }
+  strong{ color:var(--plum); font-weight:700; }
+  .note{ font-size:clamp(15px, 1.9vw, 22px); color:#6b5230; font-style:italic; background:#fff0da; border-radius:10px; padding:16px 20px; }
+
+  .pullquote{ font-family:'Playfair Display', serif; font-style:italic; font-size:clamp(21px, 3.4vw, 33px); line-height:1.5; color:var(--plum); border-left:6px solid var(--terra); padding:6px 0 6px 26px; margin:32px 0; background:rgba(255,201,138,0.25); border-radius:0 10px 10px 0; }
+
+  .handnote{
+    font-family:'Caveat', cursive; font-size:clamp(22px, 3.6vw, 34px); color:#fff;
+    background:linear-gradient(120deg, var(--terra), var(--plum)); border:none; border-radius:14px;
+    padding:20px 26px; margin:30px 0; line-height:1.4; transform:rotate(-0.4deg);
+    box-shadow:0 8px 20px rgba(138,63,94,0.25);
+  }
+  .handnote b{ font-family:'Caveat', cursive; font-size:clamp(23px, 3.7vw, 35px); }
+
+  .photo{ width:100%; border-radius:12px; display:block; margin:26px 0 10px; max-height:360px; object-fit:cover; box-shadow:0 8px 22px rgba(180,110,40,0.18); }
+  .cap{ font-size:clamp(13px, 1.6vw, 19px); color:#8a6a3f; font-style:italic; margin-bottom:22px; }
+
+  .mosaic{ display:grid; grid-template-columns:1.3fr 1fr; grid-template-rows:150px 150px; gap:12px; margin:28px 0 12px; }
+  .mosaic img{ width:100%; height:100%; object-fit:cover; border-radius:10px; box-shadow:0 6px 16px rgba(180,110,40,0.15); }
+  .mosaic .big{ grid-row:span 2; height:312px; }
+
+  .trio{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:26px 0 10px; }
+  .trio img{ width:100%; height:150px; object-fit:cover; border-radius:10px; box-shadow:0 6px 16px rgba(180,110,40,0.15); }
+
+  .duo{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin:24px 0; }
+  .duo .card{ background:#fff; border:2px solid var(--peach); border-radius:12px; padding:22px 24px; box-shadow:0 6px 16px rgba(180,110,40,0.12); }
+  .duo .card h3{ margin-top:0; }
+  .duo .card img{ width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:14px; }
+
+  .table-wrap{ width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  table{ width:100%; min-width:480px; border-collapse:collapse; margin:26px 0 12px; font-size:clamp(15px, 2vw, 23px); border-radius:10px; overflow:hidden; box-shadow:0 6px 16px rgba(180,110,40,0.12); }
+  th{ background:linear-gradient(90deg, var(--plum), var(--terra)); color:#fff; text-align:left; padding:14px 16px; font-weight:600; font-size:clamp(12px, 1.5vw, 18px); letter-spacing:0.4px; text-transform:uppercase; }
+  td{ padding:14px 16px; border-bottom:1px solid var(--line); }
+  tr:nth-child(odd) td{ background:#fff6e6; }
+  tr:nth-child(even) td{ background:#ffeed4; }
+
+  .list-clean{ list-style:none; padding:0; margin:0 0 12px; }
+  .list-clean li{ padding:14px 4px; border-bottom:2px dashed var(--peach); font-size:clamp(16px, 2.1vw, 26px); }
+  .list-clean li b{ color:var(--terra); }
+
+  .grocery{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; margin:22px 0 10px; }
+  .grocery h3{ margin-top:0; font-size:clamp(15px, 1.8vw, 22px); letter-spacing:0.5px; background:var(--olive); color:#fff; display:inline-block; padding:5px 14px; border-radius:8px; }
+  .grocery ul{ margin:10px 0 0; padding-left:22px; }
+  .grocery li{ margin-bottom:8px; font-size:clamp(15px, 1.8vw, 22px); }
+
+  .closing{ text-align:center; background:linear-gradient(160deg, var(--plum) 0%, var(--terra) 55%, var(--gold) 100%); color:#fff8ef; padding:0; position:relative; overflow:hidden; border-radius:18px; max-width:760px; margin:24px auto; }
+  .closing .bgphoto{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0.22; }
+  .closing .inner{ position:relative; padding:100px 40px 60px; }
+  .closing .serif{ font-size:clamp(22px, 3.8vw, 34px); max-width:560px; margin:0 auto 24px; font-style:italic; }
+  .closing .brand{ letter-spacing:6px; color:#ffe4b8; font-size:clamp(14px, 1.7vw, 19px); text-transform:uppercase; margin-bottom:12px; font-weight:700; }
+  .closing .place{ font-size:clamp(14px, 1.8vw, 21px); color:#ffe4cf; margin-top:8px; }
+  .closing .fine{ font-size:clamp(12px, 1.4vw, 17px); color:#ffe9d6; margin-top:30px; max-width:520px; margin-left:auto; margin-right:auto; line-height:1.6; }
+
+  @media(max-width:768px){
+    section{ padding:44px 26px; margin:16px 12px; }
+    .cover{ padding:50px 20px 30px; }
+    .cover .banner{ height:220px; }
+    .duo{ grid-template-columns:1fr; }
+    .grocery{ grid-template-columns:1fr; }
+    .closing .inner{ padding:70px 24px 44px; }
+    .closing{ margin:16px 12px; }
+  }
+  @media(max-width:600px){
+    .mosaic{ grid-template-columns:1fr; grid-template-rows:auto; }
+    .mosaic .big{ height:200px; }
+    .mosaic img{ height:150px; }
+    .trio{ grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:420px){
+    section{ padding:34px 18px; }
+    .cover{ padding:40px 16px 24px; }
+    .cover .banner{ height:180px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <img class="banner" src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/bb5d476c-9c2c-50cf-a80b-21d6347e5b72/10f1907b-2567-564d-b1ad-0ade96af1083.jpg" alt="Plat gastronomique">
+  <div class="eyebrow">Bravo Fit · Montpellier</div>
+  <h1>Le Guide Nutrition</h1>
+  <div class="rule"></div>
+  <p>Manger juste, s'organiser sans y penser, et laisser ton corps répondre enfin à tes efforts.</p>
+  <div class="disclaimer">Ce guide est un support d'accompagnement en rééquilibrage alimentaire, réalisé par un coach sportif. Il ne remplace pas une consultation avec un médecin ou un diététicien-nutritionniste diplômé, en particulier en cas de pathologie, de grossesse ou de trouble alimentaire.</div>
+</div>
+
+<section>
+  <div class="kicker">Chapitre 01</div>
+  <h2>L'assiette, avant tout</h2>
+  <p>Un corps qui manque de carburant récupère mal et fatigue vite. Ça se voit dans les dernières répétitions qui deviennent lourdes, dans le sommeil qui ne suffit plus, dans cette impression de stagner alors que l'entraînement, lui, ne faiblit pas.</p>
+  <p>La question à se poser n'est presque jamais "qu'est-ce que je dois enlever", mais plutôt "qu'est-ce qui manque". Le plus souvent : des protéines en quantité suffisante, du fer, des fibres, ou simplement un repas structuré à la bonne heure.</p>
+  <div class="pullquote">Ton assiette est ton carburant, pas ta punition.</div>
+  <div class="mosaic">
+    <img class="big" src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/d79f745f-930c-5923-96cc-45fc75965b9d/aea87596-f96d-554b-b6b6-3f49ba6ea7ca.jpg" alt="Assortiment de légumes">
+    <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/0422efe0-db00-5f9c-9fff-7fb973a3848b/fa265219-85e8-587b-860d-fff759aae309.jpg" alt="Fruits colorés">
+    <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/1b5d3270-420c-5db4-83d6-614832519bd9/13def525-8353-536a-96fb-d50d1b014cb5.jpg" alt="Rayon fruits et légumes">
+  </div>
+  <div class="cap">La couleur dans l'assiette reflète la diversité des micronutriments qu'elle contient.</div>
+</section>
+
+<section>
+  <div class="kicker">Chapitre 02</div>
+  <h2>S'organiser sans y penser</h2>
+  <p>Le dimanche, cinq minutes suffisent pour regarder la semaine : combien de séances, à quelle heure, et ce qu'il reste déjà dans le frigo. Ce petit rituel évite la majorité des écarts subis.</p>
+  <ul class="list-clean">
+    <li><b>Dimanche :</b> menus de la semaine et liste de courses.</li>
+    <li><b>Veille d'une séance matinale :</b> collation prête à l'avance.</li>
+    <li><b>Jour J :</b> repas complet 2 à 3h avant, ou collation légère 45 minutes avant.</li>
+    <li><b>Après l'effort :</b> un repas dans les heures qui suivent, sans précipitation.</li>
+  </ul>
+  <div class="handnote">Petit rituel du dimanche : 10 minutes, un carnet, un café, et toute la semaine devient plus simple. ✍️</div>
+  <img class="photo" src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/1b5d3270-420c-5db4-83d6-614832519bd9/13def525-8353-536a-96fb-d50d1b014cb5.jpg" alt="Rayon fruits et légumes">
+  <div class="cap">Le passage au marché ou en rayon frais du dimanche construit toute la semaine.</div>
+</section>
+
+<section>
+  <div class="kicker">Chapitre 03</div>
+  <h2>Avant et après la séance</h2>
+  <p>Avant l'effort, l'objectif est une énergie disponible sans peser sur la digestion. Après, place à la reconstruction musculaire et à la recharge en énergie.</p>
+  <div class="duo">
+    <div class="card">
+      <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/077cb556-d8d5-5067-91cb-749b52605e59/f8918cd2-f888-5047-b81a-5fc8785cf710.jpg" alt="Repas avant séance">
+      <h3>Avant</h3>
+      <p>2-3h avant : repas complet (riz, poulet, légumes cuits). 45 min avant : collation glucidique légère.</p>
+    </div>
+    <div class="card">
+      <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/fb071839-be88-546a-81ee-4af00c2da931/2ebb8cb0-e11d-5ec8-9e8e-f34af5f7979e.jpg" alt="Repas après séance">
+      <h3>Après</h3>
+      <p>Une source de protéines (20 à 40g) et de glucides dans les heures qui suivent.</p>
+    </div>
+  </div>
+  <p class="note">Contrairement à une idée répandue, la fenêtre de récupération n'est pas limitée à 30 minutes. Les études de l'International Society of Sports Nutrition montrent qu'elle reste ouverte 4 à 6 heures : c'est l'apport protéique total de la journée qui compte le plus.</p>
+</section>
+
+<section>
+  <div class="kicker">Chapitre 04</div>
+  <h2>Menus types de la semaine</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Repas</th><th>Option 1</th><th>Option 2 (végétale)</th></tr>
+    <tr><td>Petit-déjeuner</td><td>Œufs, avoine, fruits rouges</td><td>Porridge, graines, banane</td></tr>
+    <tr><td>Déjeuner</td><td>Poulet, riz complet, brocolis</td><td>Pois chiches rôtis, quinoa, légumes</td></tr>
+    <tr><td>Collation</td><td>Amandes et fruit</td><td>Houmous et bâtonnets de légumes</td></tr>
+    <tr><td>Dîner</td><td>Saumon, patate douce, épinards</td><td>Lentilles corail, riz, légumes verts</td></tr>
+  </table>
+  </div>
+  <div class="trio">
+    <img src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ed9ffa3e6a4c07209bcb875aa60e60f9ceb5d43c4bbcbd553d50a1e705a2adc7300176f5af42bc0445cabfc9759df9d562a6053963e90506bc1bb9dfe36d4b3f4" alt="Saumon frais">
+    <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/bb5d476c-9c2c-50cf-a80b-21d6347e5b72/10f1907b-2567-564d-b1ad-0ade96af1083.jpg" alt="Plat gourmand">
+    <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/c16d7be6-ca34-525b-9aa2-03d7850a9deb/a47d0eb2-53d9-5ccc-9df9-ab5681e44d83.jpg" alt="Assiette élégante">
+  </div>
+  <div class="cap">Manger équilibré ne veut pas dire manger fade, ni manger de la viande à chaque repas.</div>
+</section>
+
+<section>
+  <div class="kicker">Chapitre 05</div>
+  <h2>Macronutriments et fibres : les repères</h2>
+  <h3>Protéines animales</h3>
+  <p>Base de la construction musculaire : œufs, poissons, viandes, volailles, produits laitiers. La littérature scientifique (position de l'International Society of Sports Nutrition) recommande, pour une pratique régulière de la musculation, <strong>1,4 à 2,0 g de protéines par kilo de poids corporel et par jour</strong>, réparties en 3 à 4 prises.</p>
+  <h3>Protéines végétales</h3>
+  <p>Les légumineuses n'ont rien à envier à la viande : <strong>lentilles cuites (≈9-10 g de protéines pour 100 g)</strong>, <strong>pois chiches cuits (≈8 g/100 g)</strong>, <strong>tofu ferme (≈12-15 g/100 g)</strong>. Associées à une céréale (riz, semoule, quinoa) dans le même repas, elles couvrent l'ensemble des acides aminés essentiels, exactement comme une source animale.</p>
+  <div class="handnote">On me demande souvent : "sans viande, je vais manquer de protéines ?" Non, un bol de lentilles + riz + légumes couvre largement un repas complet. 🌿</div>
+  <h3>Glucides</h3>
+  <p>Le carburant du cerveau et des muscles : riz, avoine, patate douce, fruits, légumineuses. Environ 3 à 6 g par kilo de poids corporel selon le volume d'entraînement.</p>
+  <h3>Lipides</h3>
+  <p>Essentiels aux hormones et à l'absorption des vitamines : huile d'olive, avocat, noix, poissons gras.</p>
+  <h3>Fibres</h3>
+  <p>Souvent oubliées, elles régulent le transit, la satiété et la glycémie. La recommandation usuelle se situe entre <strong>25 et 30 g par jour</strong>, apportées par les légumineuses, les céréales complètes, les fruits et les légumes.</p>
+</section>
+
+<section>
+  <div class="kicker">Chapitre 06</div>
+  <h2>Le fer et les micronutriments clés</h2>
+  <p>Le fer transporte l'oxygène dans le sang. Quand il manque, la fatigue s'installe, l'élan retombe et la récupération traîne, un signal fréquent chez les personnes actives, en particulier les femmes.</p>
+  <p><strong>Sources animales</strong> : foie, viande rouge, sardines, moules, huîtres.<br>
+  <strong>Sources végétales</strong> : lentilles, pois chiches, quinoa, légumes verts, sésame.</p>
+  <p>Selon l'ANSES, les besoins quotidiens sont d'environ <strong>11 mg pour les hommes</strong> et jusqu'à <strong>16 mg pour les femmes menstruées</strong>. Associer une source de vitamine C, citron, kiwi, poivron, au repas améliore nettement l'absorption du fer végétal.</p>
+  <div class="mosaic">
+    <img class="big" src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e3ad9be75093b0bf9f6f41c0d670452207c8e19802d319a75f66dcb925abc58973f57a9039d1a467f93016782c3876b15e4f3e3201cb22b0a915a162e63d9e341" alt="Marché aux épices">
+    <img src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ef143ba89c96b9e90865c57d262611587294997c24de9de3137b1e6f2f79c5c0bb397e2a5da4a5af7c19d48fc5ee1149fd557db9b0720d5312f565861dcba73ef" alt="Curcuma en poudre">
+    <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/57f6fc86-1e26-5a29-adee-8610ac104da2/b5bf3f4e-383e-5c9f-960f-83daa34a1d2a.jpg" alt="Épices colorées">
+  </div>
+  <h3>Un mot sur les épices</h3>
+  <p><strong>Curcuma</strong> (1 à 3 g/jour, associé au poivre noir) : propriétés anti-inflammatoires documentées. <strong>Gingembre</strong> (1 à 2 g/jour) : confort digestif. <strong>Cannelle</strong> (1 à 3 g/jour) : effet modeste mais mesuré sur la glycémie post-repas.</p>
+</section>
+
+<section>
+  <div class="kicker">Chapitre 07</div>
+  <h2>Produits laitiers : le vrai du faux</h2>
+  <p>Les produits laitiers apportent du calcium, de la vitamine D et des protéines de qualité, ils ne sont pas à bannir par principe. Mais leur effet varie beaucoup d'une personne à l'autre, et particulièrement chez la femme pendant le cycle menstruel.</p>
+  <p>Certaines personnes digèrent mal le lactose : cela peut provoquer ballonnements, gaz et inconfort digestif, des symptômes souvent plus marqués juste avant ou pendant les règles. Par ailleurs, les graisses saturées des produits laitiers entiers peuvent, chez certaines femmes sensibles, favoriser la production de prostaglandines impliquées dans les crampes menstruelles.</p>
+  <div class="handnote">Ici, pas de dogme : si tu te sens ballonnée après un yaourt, teste sans pendant deux semaines et observe. Le corps donne toujours la réponse. 🥛</div>
+  <p>La bonne approche n'est pas l'exclusion systématique, mais l'observation : tester sa tolérance, privilégier si besoin les produits fermentés (yaourt, fromage affiné, mieux digérés) ou les alternatives végétales enrichies en calcium, et ajuster selon les périodes du cycle.</p>
+</section>
+
+<section>
+  <div class="kicker">Chapitre 08</div>
+  <h2>La liste de courses</h2>
+  <div class="grocery">
+    <div><h3>Protéines animales</h3><ul><li>Poulet, dinde</li><li>Œufs</li><li>Poisson blanc, saumon</li><li>Yaourt nature</li></ul></div>
+    <div><h3>Protéines végétales</h3><ul><li>Lentilles, pois chiches</li><li>Tofu, tempeh</li><li>Haricots rouges</li><li>Pois cassés</li></ul></div>
+    <div><h3>Glucides & fibres</h3><ul><li>Riz complet, quinoa</li><li>Avoine</li><li>Patate douce</li><li>Fruits de saison</li></ul></div>
+    <div><h3>Lipides, épices, légumes</h3><ul><li>Huile d'olive, avocat</li><li>Amandes, noix</li><li>Curcuma, gingembre, cannelle</li><li>Brocolis, épinards, citron</li></ul></div>
+  </div>
+  <img class="photo" src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6eada2200bb27d37c03045ea1021d444330e1fdf0c6bb44b1940e42771e2bba6ca3828a362fef79a5cf34ce797cc40a52d4af5a96fd17492defd3a077d756d5896" alt="Rayon frais complet">
+  <div class="cap">Fais le tour du rayon frais en priorité : c'est là que se joue l'essentiel de la qualité de ton assiette.</div>
+</section>
+
+<div class="closing">
+  <img class="bgphoto" src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/82fa29d8-e93a-51a1-b748-0d9eafc2c9af/891a1bb0-af7a-5c0b-b32e-46ecd36aa38e.jpg" alt="Fond plat gourmand">
+  <div class="inner">
+    <div class="brand">Bravo Fit</div>
+    <div class="serif">Une belle assiette n'est pas qu'une image. C'est une base solide pour l'énergie, la récupération et la progression.</div>
+    <div class="place">Coaching & Accompagnement en rééquilibrage alimentaire · Montpellier</div>
+    <div class="fine">Ce guide est proposé à titre informatif par un coach sportif spécialisé en rééquilibrage alimentaire. Il ne constitue ni un avis médical ni une prescription diététique, et ne remplace pas le suivi d'un médecin ou d'un diététicien-nutritionniste diplômé.</div>
+  </div>
+</div>
+
+</body>
+</html>
+
